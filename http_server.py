@@ -1,10 +1,10 @@
 from carrier_pigeon.app import (
     get_config,
-    make_app)
+    make_http_server)
 import tornado.ioloop
 
-app = make_app()
 config = get_config()
+server = make_http_server()
 
-app.listen(config["tornado"]["port"])
+server.listen(config["http_server"]["port"])
 tornado.ioloop.IOLoop.current().start()
